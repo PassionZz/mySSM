@@ -16,11 +16,11 @@ public class MyBatisTest {
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int result = mapper.insertUser();
         System.out.println("结果： "+ result);
-        sqlSession.commit();
+//        sqlSession.commit();
         sqlSession.close();
     }
 }
