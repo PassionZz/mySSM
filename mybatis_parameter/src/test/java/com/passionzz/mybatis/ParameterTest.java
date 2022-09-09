@@ -6,6 +6,8 @@ import com.passionzz.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * @Classname ParameterTest
  * @Date 2022/9/9 10:30
@@ -47,6 +49,32 @@ public class ParameterTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.checkLoginByParams("Joy", "hellojoy");
         System.out.println(user);
+        sqlSession.close();
+    }
+
+    @Test
+    public void testGetUserById(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.getUserById(2);
+        System.out.println(user);
+        sqlSession.close();
+    }
+
+    @Test
+    public void testGetAllUser(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> allUser = mapper.getAllUser();
+        allUser.forEach(System.out::println);
+        sqlSession.close();
+    }
+    @Test
+    public void testGetCount(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Integer count = mapper.getCount();
+        System.out.println(count);
         sqlSession.close();
     }
 }

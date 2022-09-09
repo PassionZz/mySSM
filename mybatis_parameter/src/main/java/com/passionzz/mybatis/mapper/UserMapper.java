@@ -4,6 +4,8 @@ import com.passionzz.mybatis.POJO.User;
 import org.apache.ibatis.annotations.Param;
 import sun.java2d.pipe.ValidatePipe;
 
+import java.util.List;
+
 /**
  * @Classname UserMapper
  * @Date 2022/9/9 10:15
@@ -41,4 +43,23 @@ public interface UserMapper {
      * @return
      */
     User checkLoginByParams(@Param("username")String username, @Param("password")String password);
+
+    /**
+     * 根据id获取user
+     * @param id
+     * @return
+     */
+    User getUserById(@Param("id")Integer id);
+
+    /**
+     * 获取全部user
+     * @return
+     */
+    List<User> getAllUser();
+
+    /**
+     * 获取用户数量
+     * @return
+     */
+    Integer getCount();
 }

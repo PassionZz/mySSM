@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passionzz.mybatis.mapper.SelectMapper">
+    <!--Map<String, Object> getUserByIdToMap();-->
+    <select id="getUserByIdToMap" resultType="map">
+        select * from t_user where id = #{id}
+    </select>
+    <!--List<Map<String,Object>> getUsersInMap();-->
+    <select id="getUsersInMap" resultType="map">
+        select * from t_user
+    </select>
+    <!--Map<String, Object> getUserToMap();-->
+    <select id="getUserToMap" resultType="map">
+        select * from t_user
+    </select>
+</mapper>
